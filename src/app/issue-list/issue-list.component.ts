@@ -10,6 +10,8 @@ import { Issue } from '../issue';
 export class IssueListComponent implements OnInit {
   issues: Issue[] = [];
 
+  showReportIssue = false;
+
   constructor(private issuesService: IssuesService) {}
 
   private getIssue() {
@@ -17,6 +19,11 @@ export class IssueListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.getIssue()
+    this.getIssue();
+  }
+
+  onCloseReport() {
+    this.showReportIssue = false;
+    this.getIssue();
   }
 }
